@@ -1,0 +1,2598 @@
+//
+// Generated (version 2020.3<build 62942>) at Fri Oct 15 22:20:48 2021
+//
+
+module pwm
+(
+    input [31:0] addr_i,
+    input [31:0] data_period_duty_i,
+    input [31:0] we_i,
+    input clk,
+    input rst,
+    output [31:0] data_o,
+    output pwm_out
+);
+    wire N47_0;
+    wire N79;
+    wire N87;
+    wire N91;
+    wire N96;
+    wire [10:0] N103;
+    wire _N21;
+    wire _N22;
+    wire _N23;
+    wire _N24;
+    wire _N25;
+    wire _N26;
+    wire _N27;
+    wire _N28;
+    wire _N29;
+    wire _N55;
+    wire _N67;
+    wire _N69;
+    wire _N166;
+    wire _N167;
+    wire _N168;
+    wire _N169;
+    wire _N170;
+    wire _N171;
+    wire _N172;
+    wire _N173;
+    wire _N174;
+    wire _N175;
+    wire _N176;
+    wire _N177;
+    wire _N178;
+    wire _N179;
+    wire _N180;
+    wire _N181;
+    wire _N182;
+    wire _N183;
+    wire _N184;
+    wire _N185;
+    wire _N186;
+    wire _N187;
+    wire _N188;
+    wire _N189;
+    wire _N190;
+    wire _N191;
+    wire _N192;
+    wire _N193;
+    wire _N194;
+    wire _N195;
+    wire _N196;
+    wire _N197;
+    wire _N198;
+    wire _N199;
+    wire _N200;
+    wire _N201;
+    wire _N202;
+    wire _N203;
+    wire _N204;
+    wire _N205;
+    wire _N206;
+    wire _N207;
+    wire _N248;
+    wire _N250;
+    wire _N268;
+    wire _N269;
+    wire _N270;
+    wire _N272;
+    wire _N274;
+    wire _N277;
+    wire _N278;
+    wire _N279;
+    wire [31:0] duty_r;
+    wire [31:0] nt_addr_i;
+    wire nt_clk;
+    wire [31:0] nt_data_period_duty_i;
+    wire nt_pwm_out;
+    wire nt_rst;
+    wire [31:0] nt_we_i;
+    wire [31:0] period_cnt;
+    wire [31:0] period_r;
+
+    GTP_GRS GRS_INST (
+            .GRS_N (1'b1));
+
+    GTP_LUT5 /* N20_mux4 */ #(
+            .INIT(32'b11111111111111111010101010101000))
+        N20_mux4 (
+            .Z (_N55),
+            .I0 (period_cnt[3]),
+            .I1 (period_cnt[2]),
+            .I2 (period_cnt[0]),
+            .I3 (period_cnt[1]),
+            .I4 (period_cnt[4]));
+	// LUT = (I4)|(I0&I1)|(I0&I2)|(I0&I3) ;
+
+    GTP_LUT4 /* N20_mux7 */ #(
+            .INIT(16'b1100000010000000))
+        N20_mux7 (
+            .Z (_N67),
+            .I0 (period_cnt[5]),
+            .I1 (period_cnt[7]),
+            .I2 (period_cnt[6]),
+            .I3 (_N55));
+	// LUT = (I0&I1&I2)|(I1&I2&I3) ;
+
+    GTP_LUT5CARRY /* N23_1 */ #(
+            .INIT(32'b01010101010101010000000000000000), 
+            .ID_TO_LUT("FALSE"), 
+            .CIN_TO_LUT("FALSE"), 
+            .I4_TO_CARRY("TRUE"), 
+            .I4_TO_LUT("FALSE"))
+        N23_1 (
+            .COUT (_N21),
+            .Z (N103[0]),
+            .CIN (),
+            .I0 (period_cnt[0]),
+            .I1 (),
+            .I2 (),
+            .I3 (),
+            .I4 (1'b1),
+            .ID ());
+	// LUT = (~I0) ;
+	// CARRY = I4 ;
+	// ../source/perips/pwm.v:60
+
+    GTP_LUT5CARRY /* N23_2 */ #(
+            .INIT(32'b01100110011001101000100010001000), 
+            .ID_TO_LUT("FALSE"), 
+            .CIN_TO_LUT("FALSE"), 
+            .I4_TO_CARRY("TRUE"), 
+            .I4_TO_LUT("FALSE"))
+        N23_2 (
+            .COUT (_N22),
+            .Z (N103[1]),
+            .CIN (_N21),
+            .I0 (period_cnt[0]),
+            .I1 (period_cnt[1]),
+            .I2 (),
+            .I3 (),
+            .I4 (1'b0),
+            .ID ());
+	// LUT = (I0 & ~I1) | (~I0 & I1) ;
+	// CARRY = (I0 & I1) ? CIN : I4 ;
+	// ../source/perips/pwm.v:60
+
+    GTP_LUT5CARRY /* N23_3 */ #(
+            .INIT(32'b01100110011001101100110011001100), 
+            .ID_TO_LUT("FALSE"), 
+            .CIN_TO_LUT("TRUE"), 
+            .I4_TO_CARRY("TRUE"), 
+            .I4_TO_LUT("FALSE"))
+        N23_3 (
+            .COUT (_N23),
+            .Z (N103[2]),
+            .CIN (_N22),
+            .I0 (),
+            .I1 (period_cnt[2]),
+            .I2 (),
+            .I3 (),
+            .I4 (1'b0),
+            .ID ());
+	// LUT = (I0 & ~I1) | (~I0 & I1) ;
+	// CARRY = (I1) ? CIN : I4 ;
+	// ../source/perips/pwm.v:60
+
+    GTP_LUT5CARRY /* N23_4 */ #(
+            .INIT(32'b01100110011001101100110011001100), 
+            .ID_TO_LUT("FALSE"), 
+            .CIN_TO_LUT("TRUE"), 
+            .I4_TO_CARRY("TRUE"), 
+            .I4_TO_LUT("FALSE"))
+        N23_4 (
+            .COUT (_N24),
+            .Z (N103[3]),
+            .CIN (_N23),
+            .I0 (),
+            .I1 (period_cnt[3]),
+            .I2 (),
+            .I3 (),
+            .I4 (1'b0),
+            .ID ());
+	// LUT = (I0 & ~I1) | (~I0 & I1) ;
+	// CARRY = (I1) ? CIN : I4 ;
+	// ../source/perips/pwm.v:60
+
+    GTP_LUT5CARRY /* N23_5 */ #(
+            .INIT(32'b01100110011001101100110011001100), 
+            .ID_TO_LUT("FALSE"), 
+            .CIN_TO_LUT("TRUE"), 
+            .I4_TO_CARRY("TRUE"), 
+            .I4_TO_LUT("FALSE"))
+        N23_5 (
+            .COUT (_N25),
+            .Z (N103[4]),
+            .CIN (_N24),
+            .I0 (),
+            .I1 (period_cnt[4]),
+            .I2 (),
+            .I3 (),
+            .I4 (1'b0),
+            .ID ());
+	// LUT = (I0 & ~I1) | (~I0 & I1) ;
+	// CARRY = (I1) ? CIN : I4 ;
+	// ../source/perips/pwm.v:60
+
+    GTP_LUT5CARRY /* N23_6 */ #(
+            .INIT(32'b01100110011001101100110011001100), 
+            .ID_TO_LUT("FALSE"), 
+            .CIN_TO_LUT("TRUE"), 
+            .I4_TO_CARRY("TRUE"), 
+            .I4_TO_LUT("FALSE"))
+        N23_6 (
+            .COUT (_N26),
+            .Z (N103[5]),
+            .CIN (_N25),
+            .I0 (),
+            .I1 (period_cnt[5]),
+            .I2 (),
+            .I3 (),
+            .I4 (1'b0),
+            .ID ());
+	// LUT = (I0 & ~I1) | (~I0 & I1) ;
+	// CARRY = (I1) ? CIN : I4 ;
+	// ../source/perips/pwm.v:60
+
+    GTP_LUT5CARRY /* N23_7 */ #(
+            .INIT(32'b01100110011001101100110011001100), 
+            .ID_TO_LUT("FALSE"), 
+            .CIN_TO_LUT("TRUE"), 
+            .I4_TO_CARRY("TRUE"), 
+            .I4_TO_LUT("FALSE"))
+        N23_7 (
+            .COUT (_N27),
+            .Z (N103[6]),
+            .CIN (_N26),
+            .I0 (),
+            .I1 (period_cnt[6]),
+            .I2 (),
+            .I3 (),
+            .I4 (1'b0),
+            .ID ());
+	// LUT = (I0 & ~I1) | (~I0 & I1) ;
+	// CARRY = (I1) ? CIN : I4 ;
+	// ../source/perips/pwm.v:60
+
+    GTP_LUT5CARRY /* N23_8 */ #(
+            .INIT(32'b01100110011001101100110011001100), 
+            .ID_TO_LUT("FALSE"), 
+            .CIN_TO_LUT("TRUE"), 
+            .I4_TO_CARRY("TRUE"), 
+            .I4_TO_LUT("FALSE"))
+        N23_8 (
+            .COUT (_N28),
+            .Z (N103[7]),
+            .CIN (_N27),
+            .I0 (),
+            .I1 (period_cnt[7]),
+            .I2 (),
+            .I3 (),
+            .I4 (1'b0),
+            .ID ());
+	// LUT = (I0 & ~I1) | (~I0 & I1) ;
+	// CARRY = (I1) ? CIN : I4 ;
+	// ../source/perips/pwm.v:60
+
+    GTP_LUT5CARRY /* N23_9 */ #(
+            .INIT(32'b01100110011001101100110011001100), 
+            .ID_TO_LUT("FALSE"), 
+            .CIN_TO_LUT("TRUE"), 
+            .I4_TO_CARRY("TRUE"), 
+            .I4_TO_LUT("FALSE"))
+        N23_9 (
+            .COUT (_N29),
+            .Z (N103[8]),
+            .CIN (_N28),
+            .I0 (),
+            .I1 (period_cnt[8]),
+            .I2 (),
+            .I3 (),
+            .I4 (1'b0),
+            .ID ());
+	// LUT = (I0 & ~I1) | (~I0 & I1) ;
+	// CARRY = (I1) ? CIN : I4 ;
+	// ../source/perips/pwm.v:60
+
+    GTP_LUT5CARRY /* N23_10 */ #(
+            .INIT(32'b01100110011001101100110011001100), 
+            .ID_TO_LUT("FALSE"), 
+            .CIN_TO_LUT("TRUE"), 
+            .I4_TO_CARRY("TRUE"), 
+            .I4_TO_LUT("FALSE"))
+        N23_10 (
+            .COUT (),
+            .Z (N103[9]),
+            .CIN (_N29),
+            .I0 (),
+            .I1 (period_cnt[9]),
+            .I2 (),
+            .I3 (),
+            .I4 (1'b0),
+            .ID ());
+	// LUT = (I0 & ~I1) | (~I0 & I1) ;
+	// CARRY = (I1) ? CIN : I4 ;
+	// ../source/perips/pwm.v:60
+
+    GTP_LUT5 /* N25_mux9_8 */ #(
+            .INIT(32'b10000000000000000000000000000000))
+        N25_mux9_8 (
+            .Z (_N248),
+            .I0 (period_cnt[8]),
+            .I1 (period_cnt[5]),
+            .I2 (period_cnt[6]),
+            .I3 (period_cnt[7]),
+            .I4 (period_cnt[9]));
+	// LUT = I0&I1&I2&I3&I4 ;
+
+    GTP_LUT2 /* N25_mux9_9 */ #(
+            .INIT(4'b1000))
+        N25_mux9_9 (
+            .Z (_N69),
+            .I0 (_N248),
+            .I1 (_N55));
+	// LUT = I0&I1 ;
+
+    GTP_LUT5M /* \N46[0]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[0]  (
+            .Z (_N166),
+            .I0 (duty_r[0]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[0]));
+
+    GTP_LUT5M /* \N46[1]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[1]  (
+            .Z (_N167),
+            .I0 (duty_r[1]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[1]));
+
+    GTP_LUT5M /* \N46[2]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[2]  (
+            .Z (_N168),
+            .I0 (duty_r[2]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[2]));
+
+    GTP_LUT5M /* \N46[3]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[3]  (
+            .Z (_N169),
+            .I0 (duty_r[3]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[3]));
+
+    GTP_LUT5M /* \N46[4]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[4]  (
+            .Z (_N170),
+            .I0 (duty_r[4]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[4]));
+
+    GTP_LUT5M /* \N46[5]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[5]  (
+            .Z (_N171),
+            .I0 (duty_r[5]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[5]));
+
+    GTP_LUT5M /* \N46[6]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[6]  (
+            .Z (_N172),
+            .I0 (duty_r[6]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[6]));
+
+    GTP_LUT5M /* \N46[7]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[7]  (
+            .Z (_N173),
+            .I0 (duty_r[7]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[7]));
+
+    GTP_LUT5M /* \N46[8]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[8]  (
+            .Z (_N174),
+            .I0 (duty_r[8]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[8]));
+
+    GTP_LUT5M /* \N46[9]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[9]  (
+            .Z (_N175),
+            .I0 (duty_r[9]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[9]));
+
+    GTP_LUT5M /* \N46[10]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[10]  (
+            .Z (_N176),
+            .I0 (duty_r[10]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[10]));
+
+    GTP_LUT5M /* \N46[11]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[11]  (
+            .Z (_N177),
+            .I0 (duty_r[11]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[11]));
+
+    GTP_LUT5M /* \N46[12]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[12]  (
+            .Z (_N178),
+            .I0 (duty_r[12]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[12]));
+
+    GTP_LUT5M /* \N46[13]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[13]  (
+            .Z (_N179),
+            .I0 (duty_r[13]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[13]));
+
+    GTP_LUT5M /* \N46[14]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[14]  (
+            .Z (_N180),
+            .I0 (duty_r[14]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[14]));
+
+    GTP_LUT5M /* \N46[15]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[15]  (
+            .Z (_N181),
+            .I0 (duty_r[15]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[15]));
+
+    GTP_LUT5M /* \N46[16]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[16]  (
+            .Z (_N182),
+            .I0 (duty_r[16]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[16]));
+
+    GTP_LUT5M /* \N46[17]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[17]  (
+            .Z (_N183),
+            .I0 (duty_r[17]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[17]));
+
+    GTP_LUT5M /* \N46[18]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[18]  (
+            .Z (_N184),
+            .I0 (duty_r[18]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[18]));
+
+    GTP_LUT5M /* \N46[19]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[19]  (
+            .Z (_N185),
+            .I0 (duty_r[19]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[19]));
+
+    GTP_LUT5M /* \N46[20]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[20]  (
+            .Z (_N186),
+            .I0 (duty_r[20]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[20]));
+
+    GTP_LUT5M /* \N46[21]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[21]  (
+            .Z (_N187),
+            .I0 (duty_r[21]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[21]));
+
+    GTP_LUT5M /* \N46[22]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[22]  (
+            .Z (_N188),
+            .I0 (duty_r[22]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[22]));
+
+    GTP_LUT5M /* \N46[23]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[23]  (
+            .Z (_N189),
+            .I0 (duty_r[23]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[23]));
+
+    GTP_LUT5M /* \N46[24]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[24]  (
+            .Z (_N190),
+            .I0 (duty_r[24]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[24]));
+
+    GTP_LUT5M /* \N46[25]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[25]  (
+            .Z (_N191),
+            .I0 (duty_r[25]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[25]));
+
+    GTP_LUT5M /* \N46[26]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[26]  (
+            .Z (_N192),
+            .I0 (duty_r[26]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[26]));
+
+    GTP_LUT5M /* \N46[27]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[27]  (
+            .Z (_N193),
+            .I0 (duty_r[27]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[27]));
+
+    GTP_LUT5M /* \N46[28]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[28]  (
+            .Z (_N194),
+            .I0 (duty_r[28]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[28]));
+
+    GTP_LUT5M /* \N46[29]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[29]  (
+            .Z (_N195),
+            .I0 (duty_r[29]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[29]));
+
+    GTP_LUT5M /* \N46[30]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[30]  (
+            .Z (_N196),
+            .I0 (duty_r[30]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[30]));
+
+    GTP_LUT5M /* \N46[31]  */ #(
+            .INIT(32'b00000000100000000000000010000000))
+        \N46[31]  (
+            .Z (_N197),
+            .I0 (duty_r[31]),
+            .I1 (_N250),
+            .I2 (nt_rst),
+            .I3 (nt_addr_i[3]),
+            .I4 (nt_addr_i[2]),
+            .ID (period_r[31]));
+
+    GTP_INV N47_0_vname (
+            .Z (N47_0),
+            .I (nt_rst));
+    // defparam N47_0_vname.orig_name = N47_0;
+
+    GTP_LUT4 /* N79_18 */ #(
+            .INIT(16'b0000000000000001))
+        N79_18 (
+            .Z (_N268),
+            .I0 (nt_we_i[3]),
+            .I1 (nt_we_i[2]),
+            .I2 (nt_we_i[1]),
+            .I3 (nt_we_i[4]));
+	// LUT = ~I0&~I1&~I2&~I3 ;
+
+    GTP_LUT4 /* N79_19 */ #(
+            .INIT(16'b0000000000000001))
+        N79_19 (
+            .Z (_N269),
+            .I0 (nt_we_i[7]),
+            .I1 (nt_we_i[6]),
+            .I2 (nt_we_i[5]),
+            .I3 (nt_we_i[8]));
+	// LUT = ~I0&~I1&~I2&~I3 ;
+
+    GTP_LUT4 /* N79_20 */ #(
+            .INIT(16'b0000000000000001))
+        N79_20 (
+            .Z (_N270),
+            .I0 (nt_we_i[12]),
+            .I1 (nt_we_i[11]),
+            .I2 (nt_we_i[10]),
+            .I3 (nt_we_i[9]));
+	// LUT = ~I0&~I1&~I2&~I3 ;
+
+    GTP_LUT4 /* N79_22 */ #(
+            .INIT(16'b0000000000000001))
+        N79_22 (
+            .Z (_N272),
+            .I0 (nt_we_i[19]),
+            .I1 (nt_we_i[18]),
+            .I2 (nt_we_i[17]),
+            .I3 (nt_we_i[20]));
+	// LUT = ~I0&~I1&~I2&~I3 ;
+
+    GTP_LUT4 /* N79_24 */ #(
+            .INIT(16'b0000000000000001))
+        N79_24 (
+            .Z (_N274),
+            .I0 (nt_we_i[27]),
+            .I1 (nt_we_i[26]),
+            .I2 (nt_we_i[25]),
+            .I3 (nt_we_i[28]));
+	// LUT = ~I0&~I1&~I2&~I3 ;
+
+    GTP_LUT5 /* N79_27 */ #(
+            .INIT(32'b00000000000000010000000000000000))
+        N79_27 (
+            .Z (_N277),
+            .I0 (nt_we_i[16]),
+            .I1 (nt_we_i[15]),
+            .I2 (nt_we_i[13]),
+            .I3 (nt_we_i[14]),
+            .I4 (_N270));
+	// LUT = ~I0&~I1&~I2&~I3&I4 ;
+
+    GTP_LUT5 /* N79_28 */ #(
+            .INIT(32'b00000000000000010000000000000000))
+        N79_28 (
+            .Z (_N278),
+            .I0 (nt_we_i[24]),
+            .I1 (nt_we_i[23]),
+            .I2 (nt_we_i[21]),
+            .I3 (nt_we_i[22]),
+            .I4 (_N272));
+	// LUT = ~I0&~I1&~I2&~I3&I4 ;
+
+    GTP_LUT5 /* N79_29 */ #(
+            .INIT(32'b00000000000100000000000000000000))
+        N79_29 (
+            .Z (_N279),
+            .I0 (nt_we_i[31]),
+            .I1 (nt_we_i[30]),
+            .I2 (nt_we_i[0]),
+            .I3 (nt_we_i[29]),
+            .I4 (_N274));
+	// LUT = ~I0&~I1&I2&~I3&I4 ;
+
+    GTP_LUT5 /* N79_32 */ #(
+            .INIT(32'b10000000000000000000000000000000))
+        N79_32 (
+            .Z (N79),
+            .I0 (_N278),
+            .I1 (_N277),
+            .I2 (_N268),
+            .I3 (_N269),
+            .I4 (_N279));
+	// LUT = I0&I1&I2&I3&I4 ;
+
+    GTP_LUT2 /* N84_2 */ #(
+            .INIT(4'b0001))
+        N84_2 (
+            .Z (_N250),
+            .I0 (nt_addr_i[0]),
+            .I1 (nt_addr_i[1]));
+	// LUT = ~I0&~I1 ;
+
+    GTP_LUT5 /* N87 */ #(
+            .INIT(32'b00000000000000010000000000000000))
+        N87_vname (
+            .Z (N87),
+            .I0 (nt_addr_i[3]),
+            .I1 (nt_addr_i[2]),
+            .I2 (nt_addr_i[0]),
+            .I3 (nt_addr_i[1]),
+            .I4 (N79));
+    // defparam N87_vname.orig_name = N87;
+	// LUT = ~I0&~I1&~I2&~I3&I4 ;
+	// ../source/perips/pwm.v:11
+
+    GTP_LUT5 /* N91 */ #(
+            .INIT(32'b00000000000001000000000000000000))
+        N91_vname (
+            .Z (N91),
+            .I0 (nt_addr_i[3]),
+            .I1 (nt_addr_i[2]),
+            .I2 (nt_addr_i[0]),
+            .I3 (nt_addr_i[1]),
+            .I4 (N79));
+    // defparam N91_vname.orig_name = N91;
+	// LUT = ~I0&I1&~I2&~I3&I4 ;
+	// ../source/perips/pwm.v:11
+
+    GTP_LUT3 /* \N93[0]  */ #(
+            .INIT(8'b01001100))
+        \N93[0]  (
+            .Z (_N198),
+            .I0 (_N248),
+            .I1 (N103[0]),
+            .I2 (_N55));
+	// LUT = (I1&~I2)|(~I0&I1) ;
+
+    GTP_LUT3 /* \N93[1]  */ #(
+            .INIT(8'b01001100))
+        \N93[1]  (
+            .Z (_N199),
+            .I0 (_N248),
+            .I1 (N103[1]),
+            .I2 (_N55));
+	// LUT = (I1&~I2)|(~I0&I1) ;
+
+    GTP_LUT3 /* \N93[2]  */ #(
+            .INIT(8'b01001100))
+        \N93[2]  (
+            .Z (_N200),
+            .I0 (_N248),
+            .I1 (N103[2]),
+            .I2 (_N55));
+	// LUT = (I1&~I2)|(~I0&I1) ;
+
+    GTP_LUT3 /* \N93[3]  */ #(
+            .INIT(8'b01001100))
+        \N93[3]  (
+            .Z (_N201),
+            .I0 (_N248),
+            .I1 (N103[3]),
+            .I2 (_N55));
+	// LUT = (I1&~I2)|(~I0&I1) ;
+
+    GTP_LUT3 /* \N93[4]  */ #(
+            .INIT(8'b01001100))
+        \N93[4]  (
+            .Z (_N202),
+            .I0 (_N248),
+            .I1 (N103[4]),
+            .I2 (_N55));
+	// LUT = (I1&~I2)|(~I0&I1) ;
+
+    GTP_LUT3 /* \N93[5]  */ #(
+            .INIT(8'b01001100))
+        \N93[5]  (
+            .Z (_N203),
+            .I0 (_N248),
+            .I1 (N103[5]),
+            .I2 (_N55));
+	// LUT = (I1&~I2)|(~I0&I1) ;
+
+    GTP_LUT3 /* \N93[6]  */ #(
+            .INIT(8'b01001100))
+        \N93[6]  (
+            .Z (_N204),
+            .I0 (_N248),
+            .I1 (N103[6]),
+            .I2 (_N55));
+	// LUT = (I1&~I2)|(~I0&I1) ;
+
+    GTP_LUT3 /* \N93[7]  */ #(
+            .INIT(8'b01110000))
+        \N93[7]  (
+            .Z (_N205),
+            .I0 (_N55),
+            .I1 (_N248),
+            .I2 (N103[7]));
+	// LUT = (~I1&I2)|(~I0&I2) ;
+
+    GTP_LUT3 /* \N93[8]  */ #(
+            .INIT(8'b01110000))
+        \N93[8]  (
+            .Z (_N206),
+            .I0 (_N55),
+            .I1 (_N248),
+            .I2 (N103[8]));
+	// LUT = (~I1&I2)|(~I0&I2) ;
+
+    GTP_LUT3 /* \N93[9]  */ #(
+            .INIT(8'b01110000))
+        \N93[9]  (
+            .Z (_N207),
+            .I0 (_N55),
+            .I1 (_N248),
+            .I2 (N103[9]));
+	// LUT = (~I1&I2)|(~I0&I2) ;
+
+    GTP_LUT4 /* N96 */ #(
+            .INIT(16'b0000111100011111))
+        N96_vname (
+            .Z (N96),
+            .I0 (period_cnt[9]),
+            .I1 (period_cnt[8]),
+            .I2 (nt_rst),
+            .I3 (_N67));
+    // defparam N96_vname.orig_name = N96;
+	// LUT = (~I2)|(~I0&~I1&~I3) ;
+	// ../source/perips/pwm.v:27
+
+    GTP_INBUF /* \addr_i_ibuf[0]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \addr_i_ibuf[0]  (
+            .O (nt_addr_i[0]),
+            .I (addr_i[0]));
+	// ../source/perips/pwm.v:12
+
+    GTP_INBUF /* \addr_i_ibuf[1]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \addr_i_ibuf[1]  (
+            .O (nt_addr_i[1]),
+            .I (addr_i[1]));
+	// ../source/perips/pwm.v:12
+
+    GTP_INBUF /* \addr_i_ibuf[2]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \addr_i_ibuf[2]  (
+            .O (nt_addr_i[2]),
+            .I (addr_i[2]));
+	// ../source/perips/pwm.v:12
+
+    GTP_INBUF /* \addr_i_ibuf[3]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \addr_i_ibuf[3]  (
+            .O (nt_addr_i[3]),
+            .I (addr_i[3]));
+	// ../source/perips/pwm.v:12
+
+    GTP_INBUF /* clk_ibuf */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        clk_ibuf (
+            .O (nt_clk),
+            .I (clk));
+	// ../source/perips/pwm.v:8
+
+    GTP_OUTBUF /* \data_o_obuf[0]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[0]  (
+            .O (data_o[0]),
+            .I (_N166));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[1]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[1]  (
+            .O (data_o[1]),
+            .I (_N167));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[2]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[2]  (
+            .O (data_o[2]),
+            .I (_N168));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[3]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[3]  (
+            .O (data_o[3]),
+            .I (_N169));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[4]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[4]  (
+            .O (data_o[4]),
+            .I (_N170));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[5]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[5]  (
+            .O (data_o[5]),
+            .I (_N171));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[6]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[6]  (
+            .O (data_o[6]),
+            .I (_N172));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[7]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[7]  (
+            .O (data_o[7]),
+            .I (_N173));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[8]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[8]  (
+            .O (data_o[8]),
+            .I (_N174));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[9]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[9]  (
+            .O (data_o[9]),
+            .I (_N175));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[10]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[10]  (
+            .O (data_o[10]),
+            .I (_N176));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[11]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[11]  (
+            .O (data_o[11]),
+            .I (_N177));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[12]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[12]  (
+            .O (data_o[12]),
+            .I (_N178));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[13]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[13]  (
+            .O (data_o[13]),
+            .I (_N179));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[14]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[14]  (
+            .O (data_o[14]),
+            .I (_N180));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[15]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[15]  (
+            .O (data_o[15]),
+            .I (_N181));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[16]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[16]  (
+            .O (data_o[16]),
+            .I (_N182));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[17]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[17]  (
+            .O (data_o[17]),
+            .I (_N183));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[18]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[18]  (
+            .O (data_o[18]),
+            .I (_N184));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[19]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[19]  (
+            .O (data_o[19]),
+            .I (_N185));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[20]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[20]  (
+            .O (data_o[20]),
+            .I (_N186));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[21]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[21]  (
+            .O (data_o[21]),
+            .I (_N187));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[22]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[22]  (
+            .O (data_o[22]),
+            .I (_N188));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[23]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[23]  (
+            .O (data_o[23]),
+            .I (_N189));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[24]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[24]  (
+            .O (data_o[24]),
+            .I (_N190));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[25]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[25]  (
+            .O (data_o[25]),
+            .I (_N191));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[26]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[26]  (
+            .O (data_o[26]),
+            .I (_N192));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[27]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[27]  (
+            .O (data_o[27]),
+            .I (_N193));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[28]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[28]  (
+            .O (data_o[28]),
+            .I (_N194));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[29]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[29]  (
+            .O (data_o[29]),
+            .I (_N195));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[30]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[30]  (
+            .O (data_o[30]),
+            .I (_N196));
+	// ../source/perips/pwm.v:15
+
+    GTP_OUTBUF /* \data_o_obuf[31]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        \data_o_obuf[31]  (
+            .O (data_o[31]),
+            .I (_N197));
+	// ../source/perips/pwm.v:15
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[0]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[0]  (
+            .O (nt_data_period_duty_i[0]),
+            .I (data_period_duty_i[0]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[1]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[1]  (
+            .O (nt_data_period_duty_i[1]),
+            .I (data_period_duty_i[1]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[2]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[2]  (
+            .O (nt_data_period_duty_i[2]),
+            .I (data_period_duty_i[2]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[3]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[3]  (
+            .O (nt_data_period_duty_i[3]),
+            .I (data_period_duty_i[3]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[4]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[4]  (
+            .O (nt_data_period_duty_i[4]),
+            .I (data_period_duty_i[4]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[5]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[5]  (
+            .O (nt_data_period_duty_i[5]),
+            .I (data_period_duty_i[5]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[6]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[6]  (
+            .O (nt_data_period_duty_i[6]),
+            .I (data_period_duty_i[6]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[7]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[7]  (
+            .O (nt_data_period_duty_i[7]),
+            .I (data_period_duty_i[7]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[8]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[8]  (
+            .O (nt_data_period_duty_i[8]),
+            .I (data_period_duty_i[8]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[9]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[9]  (
+            .O (nt_data_period_duty_i[9]),
+            .I (data_period_duty_i[9]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[10]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[10]  (
+            .O (nt_data_period_duty_i[10]),
+            .I (data_period_duty_i[10]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[11]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[11]  (
+            .O (nt_data_period_duty_i[11]),
+            .I (data_period_duty_i[11]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[12]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[12]  (
+            .O (nt_data_period_duty_i[12]),
+            .I (data_period_duty_i[12]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[13]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[13]  (
+            .O (nt_data_period_duty_i[13]),
+            .I (data_period_duty_i[13]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[14]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[14]  (
+            .O (nt_data_period_duty_i[14]),
+            .I (data_period_duty_i[14]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[15]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[15]  (
+            .O (nt_data_period_duty_i[15]),
+            .I (data_period_duty_i[15]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[16]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[16]  (
+            .O (nt_data_period_duty_i[16]),
+            .I (data_period_duty_i[16]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[17]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[17]  (
+            .O (nt_data_period_duty_i[17]),
+            .I (data_period_duty_i[17]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[18]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[18]  (
+            .O (nt_data_period_duty_i[18]),
+            .I (data_period_duty_i[18]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[19]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[19]  (
+            .O (nt_data_period_duty_i[19]),
+            .I (data_period_duty_i[19]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[20]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[20]  (
+            .O (nt_data_period_duty_i[20]),
+            .I (data_period_duty_i[20]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[21]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[21]  (
+            .O (nt_data_period_duty_i[21]),
+            .I (data_period_duty_i[21]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[22]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[22]  (
+            .O (nt_data_period_duty_i[22]),
+            .I (data_period_duty_i[22]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[23]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[23]  (
+            .O (nt_data_period_duty_i[23]),
+            .I (data_period_duty_i[23]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[24]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[24]  (
+            .O (nt_data_period_duty_i[24]),
+            .I (data_period_duty_i[24]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[25]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[25]  (
+            .O (nt_data_period_duty_i[25]),
+            .I (data_period_duty_i[25]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[26]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[26]  (
+            .O (nt_data_period_duty_i[26]),
+            .I (data_period_duty_i[26]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[27]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[27]  (
+            .O (nt_data_period_duty_i[27]),
+            .I (data_period_duty_i[27]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[28]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[28]  (
+            .O (nt_data_period_duty_i[28]),
+            .I (data_period_duty_i[28]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[29]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[29]  (
+            .O (nt_data_period_duty_i[29]),
+            .I (data_period_duty_i[29]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[30]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[30]  (
+            .O (nt_data_period_duty_i[30]),
+            .I (data_period_duty_i[30]));
+	// ../source/perips/pwm.v:11
+
+    GTP_INBUF /* \data_period_duty_i_ibuf[31]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \data_period_duty_i_ibuf[31]  (
+            .O (nt_data_period_duty_i[31]),
+            .I (data_period_duty_i[31]));
+	// ../source/perips/pwm.v:11
+
+    GTP_DFF_RE /* \duty_r[0]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[0]  (
+            .Q (duty_r[0]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[0]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[1]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[1]  (
+            .Q (duty_r[1]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[1]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[2]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[2]  (
+            .Q (duty_r[2]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[2]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[3]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[3]  (
+            .Q (duty_r[3]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[3]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[4]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[4]  (
+            .Q (duty_r[4]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[4]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[5]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[5]  (
+            .Q (duty_r[5]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[5]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[6]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[6]  (
+            .Q (duty_r[6]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[6]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[7]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[7]  (
+            .Q (duty_r[7]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[7]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[8]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[8]  (
+            .Q (duty_r[8]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[8]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[9]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[9]  (
+            .Q (duty_r[9]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[9]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[10]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[10]  (
+            .Q (duty_r[10]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[10]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[11]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[11]  (
+            .Q (duty_r[11]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[11]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[12]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[12]  (
+            .Q (duty_r[12]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[12]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[13]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[13]  (
+            .Q (duty_r[13]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[13]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[14]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[14]  (
+            .Q (duty_r[14]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[14]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[15]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[15]  (
+            .Q (duty_r[15]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[15]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[16]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[16]  (
+            .Q (duty_r[16]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[16]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[17]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[17]  (
+            .Q (duty_r[17]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[17]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[18]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[18]  (
+            .Q (duty_r[18]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[18]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[19]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[19]  (
+            .Q (duty_r[19]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[19]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[20]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[20]  (
+            .Q (duty_r[20]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[20]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[21]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[21]  (
+            .Q (duty_r[21]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[21]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[22]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[22]  (
+            .Q (duty_r[22]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[22]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[23]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[23]  (
+            .Q (duty_r[23]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[23]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[24]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[24]  (
+            .Q (duty_r[24]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[24]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[25]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[25]  (
+            .Q (duty_r[25]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[25]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[26]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[26]  (
+            .Q (duty_r[26]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[26]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[27]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[27]  (
+            .Q (duty_r[27]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[27]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[28]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[28]  (
+            .Q (duty_r[28]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[28]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[29]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[29]  (
+            .Q (duty_r[29]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[29]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[30]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[30]  (
+            .Q (duty_r[30]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[30]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \duty_r[31]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \duty_r[31]  (
+            .Q (duty_r[31]),
+            .CE (N91),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[31]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_R /* \period_cnt[0]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_cnt[0]  (
+            .Q (period_cnt[0]),
+            .CLK (nt_clk),
+            .D (_N198),
+            .R (N47_0));
+	// ../source/perips/pwm.v:52
+
+    GTP_DFF_R /* \period_cnt[1]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_cnt[1]  (
+            .Q (period_cnt[1]),
+            .CLK (nt_clk),
+            .D (_N199),
+            .R (N47_0));
+	// ../source/perips/pwm.v:52
+
+    GTP_DFF_R /* \period_cnt[2]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_cnt[2]  (
+            .Q (period_cnt[2]),
+            .CLK (nt_clk),
+            .D (_N200),
+            .R (N47_0));
+	// ../source/perips/pwm.v:52
+
+    GTP_DFF_R /* \period_cnt[3]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_cnt[3]  (
+            .Q (period_cnt[3]),
+            .CLK (nt_clk),
+            .D (_N201),
+            .R (N47_0));
+	// ../source/perips/pwm.v:52
+
+    GTP_DFF_R /* \period_cnt[4]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_cnt[4]  (
+            .Q (period_cnt[4]),
+            .CLK (nt_clk),
+            .D (_N202),
+            .R (N47_0));
+	// ../source/perips/pwm.v:52
+
+    GTP_DFF_R /* \period_cnt[5]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_cnt[5]  (
+            .Q (period_cnt[5]),
+            .CLK (nt_clk),
+            .D (_N203),
+            .R (N47_0));
+	// ../source/perips/pwm.v:52
+
+    GTP_DFF_R /* \period_cnt[6]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_cnt[6]  (
+            .Q (period_cnt[6]),
+            .CLK (nt_clk),
+            .D (_N204),
+            .R (N47_0));
+	// ../source/perips/pwm.v:52
+
+    GTP_DFF_R /* \period_cnt[7]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_cnt[7]  (
+            .Q (period_cnt[7]),
+            .CLK (nt_clk),
+            .D (_N205),
+            .R (N47_0));
+	// ../source/perips/pwm.v:52
+
+    GTP_DFF_R /* \period_cnt[8]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_cnt[8]  (
+            .Q (period_cnt[8]),
+            .CLK (nt_clk),
+            .D (_N206),
+            .R (N47_0));
+	// ../source/perips/pwm.v:52
+
+    GTP_DFF_R /* \period_cnt[9]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_cnt[9]  (
+            .Q (period_cnt[9]),
+            .CLK (nt_clk),
+            .D (_N207),
+            .R (N47_0));
+	// ../source/perips/pwm.v:52
+
+    GTP_DFF_RE /* \period_r[0]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[0]  (
+            .Q (period_r[0]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[0]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[1]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[1]  (
+            .Q (period_r[1]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[1]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[2]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[2]  (
+            .Q (period_r[2]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[2]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[3]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[3]  (
+            .Q (period_r[3]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[3]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[4]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[4]  (
+            .Q (period_r[4]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[4]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[5]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[5]  (
+            .Q (period_r[5]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[5]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[6]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[6]  (
+            .Q (period_r[6]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[6]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[7]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[7]  (
+            .Q (period_r[7]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[7]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[8]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[8]  (
+            .Q (period_r[8]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[8]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[9]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[9]  (
+            .Q (period_r[9]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[9]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[10]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[10]  (
+            .Q (period_r[10]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[10]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[11]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[11]  (
+            .Q (period_r[11]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[11]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[12]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[12]  (
+            .Q (period_r[12]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[12]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[13]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[13]  (
+            .Q (period_r[13]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[13]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[14]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[14]  (
+            .Q (period_r[14]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[14]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[15]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[15]  (
+            .Q (period_r[15]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[15]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[16]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[16]  (
+            .Q (period_r[16]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[16]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[17]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[17]  (
+            .Q (period_r[17]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[17]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[18]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[18]  (
+            .Q (period_r[18]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[18]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[19]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[19]  (
+            .Q (period_r[19]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[19]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[20]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[20]  (
+            .Q (period_r[20]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[20]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[21]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[21]  (
+            .Q (period_r[21]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[21]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[22]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[22]  (
+            .Q (period_r[22]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[22]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[23]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[23]  (
+            .Q (period_r[23]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[23]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[24]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[24]  (
+            .Q (period_r[24]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[24]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[25]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[25]  (
+            .Q (period_r[25]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[25]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[26]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[26]  (
+            .Q (period_r[26]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[26]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[27]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[27]  (
+            .Q (period_r[27]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[27]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[28]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[28]  (
+            .Q (period_r[28]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[28]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[29]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[29]  (
+            .Q (period_r[29]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[29]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[30]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[30]  (
+            .Q (period_r[30]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[30]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_DFF_RE /* \period_r[31]  */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b0))
+        \period_r[31]  (
+            .Q (period_r[31]),
+            .CE (N87),
+            .CLK (nt_clk),
+            .D (nt_data_period_duty_i[31]),
+            .R (N47_0));
+	// ../source/perips/pwm.v:31
+
+    GTP_OUTBUF /* pwm_out_obuf */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .SLEW_RATE("SLOW"), 
+            .DRIVE_STRENGTH("8"))
+        pwm_out_obuf (
+            .O (pwm_out),
+            .I (nt_pwm_out));
+	// ../source/perips/pwm.v:16
+
+    GTP_DFF_S /* pwm_r */ #(
+            .GRS_EN("TRUE"), 
+            .INIT(1'b1))
+        pwm_r (
+            .Q (nt_pwm_out),
+            .CLK (nt_clk),
+            .D (_N69),
+            .S (N96));
+	// ../source/perips/pwm.v:52
+
+    GTP_INBUF /* rst_ibuf */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        rst_ibuf (
+            .O (nt_rst),
+            .I (rst));
+	// ../source/perips/pwm.v:9
+
+    GTP_INBUF /* \we_i_ibuf[0]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[0]  (
+            .O (nt_we_i[0]),
+            .I (we_i[0]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[1]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[1]  (
+            .O (nt_we_i[1]),
+            .I (we_i[1]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[2]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[2]  (
+            .O (nt_we_i[2]),
+            .I (we_i[2]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[3]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[3]  (
+            .O (nt_we_i[3]),
+            .I (we_i[3]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[4]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[4]  (
+            .O (nt_we_i[4]),
+            .I (we_i[4]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[5]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[5]  (
+            .O (nt_we_i[5]),
+            .I (we_i[5]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[6]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[6]  (
+            .O (nt_we_i[6]),
+            .I (we_i[6]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[7]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[7]  (
+            .O (nt_we_i[7]),
+            .I (we_i[7]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[8]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[8]  (
+            .O (nt_we_i[8]),
+            .I (we_i[8]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[9]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[9]  (
+            .O (nt_we_i[9]),
+            .I (we_i[9]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[10]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[10]  (
+            .O (nt_we_i[10]),
+            .I (we_i[10]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[11]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[11]  (
+            .O (nt_we_i[11]),
+            .I (we_i[11]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[12]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[12]  (
+            .O (nt_we_i[12]),
+            .I (we_i[12]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[13]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[13]  (
+            .O (nt_we_i[13]),
+            .I (we_i[13]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[14]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[14]  (
+            .O (nt_we_i[14]),
+            .I (we_i[14]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[15]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[15]  (
+            .O (nt_we_i[15]),
+            .I (we_i[15]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[16]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[16]  (
+            .O (nt_we_i[16]),
+            .I (we_i[16]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[17]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[17]  (
+            .O (nt_we_i[17]),
+            .I (we_i[17]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[18]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[18]  (
+            .O (nt_we_i[18]),
+            .I (we_i[18]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[19]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[19]  (
+            .O (nt_we_i[19]),
+            .I (we_i[19]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[20]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[20]  (
+            .O (nt_we_i[20]),
+            .I (we_i[20]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[21]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[21]  (
+            .O (nt_we_i[21]),
+            .I (we_i[21]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[22]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[22]  (
+            .O (nt_we_i[22]),
+            .I (we_i[22]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[23]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[23]  (
+            .O (nt_we_i[23]),
+            .I (we_i[23]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[24]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[24]  (
+            .O (nt_we_i[24]),
+            .I (we_i[24]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[25]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[25]  (
+            .O (nt_we_i[25]),
+            .I (we_i[25]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[26]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[26]  (
+            .O (nt_we_i[26]),
+            .I (we_i[26]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[27]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[27]  (
+            .O (nt_we_i[27]),
+            .I (we_i[27]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[28]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[28]  (
+            .O (nt_we_i[28]),
+            .I (we_i[28]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[29]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[29]  (
+            .O (nt_we_i[29]),
+            .I (we_i[29]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[30]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[30]  (
+            .O (nt_we_i[30]),
+            .I (we_i[30]));
+	// ../source/perips/pwm.v:13
+
+    GTP_INBUF /* \we_i_ibuf[31]  */ #(
+            .IOSTANDARD("DEFAULT"), 
+            .TERM_DDR("ON"))
+        \we_i_ibuf[31]  (
+            .O (nt_we_i[31]),
+            .I (we_i[31]));
+	// ../source/perips/pwm.v:13
+
+
+endmodule
+

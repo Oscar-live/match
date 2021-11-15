@@ -1,0 +1,53 @@
+##### Written on 2021/11/14 19:29:13 ###############################
+
+
+##### DESIGN INFO ##################################################
+
+Top Module:
+	tinyriscv_soc_top
+
+Constraint File(s):
+	C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/git_riscv.fdc
+	
+
+##### SUMMARY ######################################################
+
+Found 0 error(s), 4 critical warning(s), 3 warning(s), out of 188 constraint(s)
+
+
+Inapplicable constraints(except overwritten constraints):
+********************************************
+
+
+
+
+
+
+Constraints with issues:
+********************************************
+
+
+
+define_attribue {spi_miso} {PAP_IO_LOC} {A4}
+	C: ConstraintEditor-2002: [C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/git_riscv.fdc(line number: 35)] | Port spi_miso has been placed at location A4, whose type is share pin.
+
+
+
+C: ConstraintEditor-2007: [C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/git_riscv.fdc] Port spi_clk lack of slew, output port and inout port had better set slew value, the default value is SLOW.
+C: ConstraintEditor-2007: [C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/git_riscv.fdc] Port spi_mosi lack of slew, output port and inout port had better set slew value, the default value is SLOW.
+C: ConstraintEditor-2007: [C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/git_riscv.fdc] Port spi_ss lack of slew, output port and inout port had better set slew value, the default value is SLOW.
+
+
+W: ConstraintEditor-4019: Port 'uart_tx_pin' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'stop' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'uart_rx_pin' unspecified I/O constraint.
+
+
+
+Constraints with matching wildcard expressions:
+********************************************
+
+
+
+
+

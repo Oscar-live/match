@@ -1,0 +1,177 @@
+##### Written on 2021/10/15 22:20:48 ###############################
+
+
+##### DESIGN INFO ##################################################
+
+Top Module:
+	pwm
+
+Constraint File(s):
+	E:/My_Document/WSJ_Master/Competition/FPGA_Design_Conpetition/my_PDS_code/my_riscv_soc_10.14/git_riscv.fdc
+	
+
+##### SUMMARY ######################################################
+
+Found 0 error(s), 0 critical warning(s), 131 warning(s), out of 0 constraint(s)
+
+
+Inapplicable constraints(except overwritten constraints):
+********************************************
+
+
+
+
+
+
+Constraints with issues:
+********************************************
+
+
+
+
+
+
+
+
+
+W: ConstraintEditor-4019: Port 'data_o[0]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[1]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[2]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[3]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[4]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[5]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[6]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[7]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[8]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[9]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[10]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[11]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[12]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[13]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[14]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[15]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[16]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[17]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[18]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[19]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[20]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[21]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[22]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[23]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[24]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[25]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[26]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[27]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[28]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[29]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[30]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_o[31]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'pwm_out' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[0]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[1]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[2]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[3]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[4]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[5]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[6]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[7]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[8]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[9]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[10]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[11]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[12]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[13]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[14]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[15]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[16]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[17]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[18]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[19]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[20]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[21]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[22]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[23]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[24]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[25]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[26]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[27]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[28]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[29]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[30]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'addr_i[31]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'clk' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[0]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[1]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[2]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[3]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[4]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[5]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[6]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[7]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[8]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[9]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[10]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[11]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[12]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[13]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[14]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[15]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[16]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[17]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[18]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[19]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[20]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[21]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[22]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[23]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[24]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[25]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[26]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[27]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[28]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[29]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[30]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'data_period_duty_i[31]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'rst' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[0]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[1]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[2]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[3]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[4]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[5]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[6]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[7]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[8]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[9]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[10]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[11]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[12]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[13]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[14]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[15]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[16]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[17]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[18]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[19]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[20]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[21]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[22]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[23]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[24]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[25]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[26]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[27]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[28]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[29]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[30]' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'we_i[31]' unspecified I/O constraint.
+
+
+
+Constraints with matching wildcard expressions:
+********************************************
+
+
+
+
+

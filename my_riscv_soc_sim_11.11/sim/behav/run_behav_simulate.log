@@ -1,0 +1,355 @@
+# Reading D:/modeltech64_10.2c/tcl/vsim/pref.tcl 
+# //  ModelSim SE-64 10.2c Jul 19 2013 
+# //
+# //  Copyright 1991-2013 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# do {run_behav_compile.tcl} 
+# ** Error: (vlib-35) Failed to create directory "work".
+# 
+# File exists. (errno = EEXIST)
+# Modifying modelsim.ini
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module jtag_dm
+# 
+# Top level modules:
+# 	jtag_dm
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module ex
+# 
+# Top level modules:
+# 	ex
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module rom
+# 
+# Top level modules:
+# 	rom
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module gen_ticks_sync
+# 
+# Top level modules:
+# 	gen_ticks_sync
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module tinyriscv
+# 
+# Top level modules:
+# 	tinyriscv
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module clint
+# 
+# Top level modules:
+# 	clint
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module tinyriscv_soc_top
+# 
+# Top level modules:
+# 	tinyriscv_soc_top
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module id
+# 
+# Top level modules:
+# 	id
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module id_ex
+# 
+# Top level modules:
+# 	id_ex
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module ctrl
+# 
+# Top level modules:
+# 	ctrl
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module spi
+# 
+# Top level modules:
+# 	spi
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module if_id
+# 
+# Top level modules:
+# 	if_id
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module div
+# 
+# Top level modules:
+# 	div
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module ram
+# 
+# Top level modules:
+# 	ram
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module gen_pipe_dff
+# -- Compiling module gen_rst_0_dff
+# -- Compiling module gen_rst_1_dff
+# -- Compiling module gen_rst_def_dff
+# -- Compiling module gen_en_dff
+# 
+# Top level modules:
+# 	gen_pipe_dff
+# 	gen_rst_0_dff
+# 	gen_rst_1_dff
+# 	gen_rst_def_dff
+# 	gen_en_dff
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module full_handshake_rx
+# 
+# Top level modules:
+# 	full_handshake_rx
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module csr_reg
+# 
+# Top level modules:
+# 	csr_reg
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module pc_reg
+# 
+# Top level modules:
+# 	pc_reg
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module jtag_driver
+# 
+# Top level modules:
+# 	jtag_driver
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module regs
+# 
+# Top level modules:
+# 	regs
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module rib
+# 
+# Top level modules:
+# 	rib
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module full_handshake_tx
+# 
+# Top level modules:
+# 	full_handshake_tx
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module gpio
+# 
+# Top level modules:
+# 	gpio
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module timer
+# 
+# Top level modules:
+# 	timer
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module uart
+# 
+# Top level modules:
+# 	uart
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module jtag_top
+# 
+# Top level modules:
+# 	jtag_top
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module uart_debug
+# 
+# Top level modules:
+# 	uart_debug
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module pwm
+# 
+# Top level modules:
+# 	pwm
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module key_filter
+# 
+# Top level modules:
+# 	key_filter
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module bcd_8421
+# 
+# Top level modules:
+# 	bcd_8421
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module data_conver
+# 
+# Top level modules:
+# 	data_conver
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module DHT22_drive
+# 
+# Top level modules:
+# 	DHT22_drive
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module HEX8
+# 
+# Top level modules:
+# 	HEX8
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module OLED_drive
+# 
+# Top level modules:
+# 	OLED_drive
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module top_dht22
+# 
+# Top level modules:
+# 	top_dht22
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module uart_tx
+# 
+# Top level modules:
+# 	uart_tx
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module hc05_top
+# 
+# Top level modules:
+# 	hc05_top
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module uart_rx
+# 
+# Top level modules:
+# 	uart_rx
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module uart_tx
+# 
+# Top level modules:
+# 	uart_tx
+# Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
+# -- Compiling module soc_tb
+# 
+# Top level modules:
+# 	soc_tb
+# do {run_behav_simulate.tcl} 
+# vsim -L work -voptargs=\"+acc\" soc_tb 
+# ** Note: (vsim-3812) Design is being optimized...
+# 
+# ** Note: (vopt-143) Recognized 1 FSM in module "jtag_driver(fast)".
+# 
+# ** Note: (vopt-143) Recognized 1 FSM in module "uart(fast)".
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc/tinyriscv_soc_top.v(385): (vopt-2685) [TFMPC] - Too few port connections for 'u_rom'.  Expected 7, found 6.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc/tinyriscv_soc_top.v(385): (vopt-2718) [TFMPC] - Missing connection for port 'en'.
+# 
+# ** Note: (vopt-143) Recognized 1 FSM in module "div(fast)".
+# 
+# ** Note: (vopt-143) Recognized 1 FSM in module "clint(fast)".
+# 
+# ** Note: (vopt-143) Recognized 1 FSM in module "full_handshake_tx(fast)".
+# 
+# ** Note: (vopt-143) Recognized 1 FSM in module "full_handshake_rx(fast)".
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2685) [TFMPC] - Too few port connections for 'tinyriscv_soc_top_inst'.  Expected 27, found 3.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'tx_uart'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'tx'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'DIO'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'RCLK'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'SCLK'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'light_sense'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'hum_flag_o'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'hum_flag_led'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'dht22'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'pwm_out_3'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'pwm_out_2'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'pwm_out_1'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'spi_clk'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'spi_ss'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'spi_mosi'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'spi_miso'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'jtag_TDO'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'jtag_TDI'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'jtag_TMS'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'jtag_TCK'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'gpio'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'uart_rx_pin'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'uart_tx_pin'.
+# 
+# ** Warning: C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): (vopt-2718) [TFMPC] - Missing connection for port 'stop'.
+# 
+# Loading work.soc_tb(fast)
+# Loading work.tinyriscv_soc_top(fast)
+# Loading work.top_dht22(fast)
+# Loading work.DHT22_drive(fast)
+# Loading work.hc05_top(fast)
+# Loading work.uart_tx(fast)
+# Loading work.uart_rx(fast)
+# Loading work.bcd_8421(fast)
+# Loading work.data_conver(fast)
+# Loading work.HEX8(fast)
+# Loading work.OLED_drive(fast)
+# Loading work.tinyriscv(fast)
+# Loading work.pc_reg(fast)
+# Loading work.ctrl(fast)
+# Loading work.regs(fast)
+# Loading work.csr_reg(fast)
+# Loading work.if_id(fast)
+# Loading work.gen_pipe_dff(fast)
+# Loading work.gen_pipe_dff(fast__1)
+# Loading work.id(fast)
+# Loading work.id_ex(fast)
+# Loading work.gen_pipe_dff(fast__2)
+# Loading work.gen_pipe_dff(fast__3)
+# Loading work.ex(fast)
+# Loading work.div(fast)
+# Loading work.clint(fast)
+# Loading work.rom(fast)
+# Loading work.ram(fast)
+# Loading work.timer(fast)
+# Loading work.uart(fast)
+# Loading work.gpio(fast)
+# Loading work.pwm(fast)
+# Loading work.rib(fast)
+# Loading work.jtag_top(fast)
+# Loading work.jtag_driver(fast)
+# Loading work.full_handshake_tx(fast)
+# Loading work.full_handshake_rx(fast)
+# Loading work.jtag_dm(fast)
+# ** Warning: (vsim-3017) C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): [TFMPC] - Too few port connections. Expected 27, found 18.
+# 
+#         Region: /soc_tb/tinyriscv_soc_top_inst
+# ** Warning: (vsim-3722) C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): [TFMPC] - Missing connection for port 'dht22'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): [TFMPC] - Missing connection for port 'hum_flag_led'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): [TFMPC] - Missing connection for port 'hum_flag_o'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): [TFMPC] - Missing connection for port 'light_sense'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): [TFMPC] - Missing connection for port 'SCLK'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): [TFMPC] - Missing connection for port 'RCLK'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): [TFMPC] - Missing connection for port 'DIO'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): [TFMPC] - Missing connection for port 'tx'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v(44): [TFMPC] - Missing connection for port 'tx_uart'.
+# 
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree

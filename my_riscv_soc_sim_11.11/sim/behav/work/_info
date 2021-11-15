@@ -1,0 +1,881 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 dC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/sim/behav
+!s112 0.1
+!i10d 8192
+!i10e 25
+!i10f 100
+T_opt
+!s110 1636890013
+V5VCd9Ae0ZckfhSD9UDR5f1
+04 6 4 work soc_tb fast 0
+=1-b8c38548b079-6190f59d-ba-4538
+o-quiet -auto_acc_if_foreign -work work -L work +acc
+n@_opt
+OL;O;10.2c;57
+vbcd_8421
+Z1 !s110 1636890012
+I1Ee;4JLLkW9]U2<h_ldS>1
+Z2 V`JN@9S9cnhjKRR_L]QIcM3
+Z3 dC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/sim/behav
+w1635475234
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/bcd_8421.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/bcd_8421.v
+L0 2
+Z4 OL;L;10.2c;57
+r1
+31
+Z5 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s100 7WlCe>6[lFfo9n^iVgjPB2
+!s108 1636890012.461000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/bcd_8421.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/bcd_8421.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vclint
+Z6 !s110 1636890010
+IRAoA846Vg^d`]h>_GDN2d3
+R2
+R3
+w1636773569
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/clint.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/clint.v
+Z7 L0 155
+R4
+r1
+31
+R5
+!s100 c=25lLAIaH>zDiA5kdf=Q3
+!s108 1636890010.835000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/clint.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/clint.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vcsr_reg
+Z8 !s110 1636890011
+ID]Eof=o7=B=KcAOTIBbVD0
+R2
+R3
+w1636773553
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/csr_reg.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/csr_reg.v
+Z9 L0 168
+R4
+r1
+31
+R5
+!s100 6PU@C0nL3=:>fj=FG<2aQ1
+!s108 1636890011.314000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/csr_reg.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/csr_reg.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vctrl
+IfS@IZgPX1@iEj5]o8@Adl0
+R2
+R3
+w1636773546
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/ctrl.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/ctrl.v
+Z10 L0 169
+R4
+r1
+31
+R5
+R8
+!s100 j?a`?TJJODcUB[GF]INH<2
+!s108 1636890011.011000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/ctrl.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/ctrl.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vdata_conver
+R1
+IONMJ90NJQ974i;l@Za<]B3
+R2
+R3
+w1636776532
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/data_conv.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/data_conv.v
+L0 1
+R4
+r1
+31
+R5
+!s100 LDJ;gXMho3K9jjD3K6=Te3
+!s108 1636890012.507000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/data_conv.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/data_conv.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vDHT22_drive
+R1
+I5HSoP^oG@>jMNV7UWN4o10
+R2
+R3
+w1635504998
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/DHT22_driver.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/DHT22_driver.v
+L0 1
+R4
+r1
+31
+R5
+n@d@h@t22_drive
+!s100 LgS@d;:4RB6BXkXfzzdHV0
+!s108 1636890012.556000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/DHT22_driver.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/DHT22_driver.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vdiv
+R8
+IS>:hMRM3^9a]m`[m<Zz>j0
+R2
+R3
+w1636773584
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/div.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/div.v
+L0 170
+R4
+r1
+31
+R5
+!s100 g3=8l`Pa;m9HSU[a2:>]C2
+!s108 1636890011.139000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/div.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/div.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vex
+R6
+IKDlEn_cLaJ?]Bcc6kU?@63
+R2
+R3
+w1636773158
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/ex.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/ex.v
+R10
+R4
+r1
+31
+R5
+!s100 FIG1VcCO_g4LKH?eEXR=Q3
+!s108 1636890010.647000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/ex.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/ex.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vfull_handshake_rx
+R8
+ISX_OY]NGX5KAQ7VE^zzcU3
+R2
+R3
+w1636775038
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/utils/full_handshake_rx.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/utils/full_handshake_rx.v
+L0 23
+R4
+r1
+31
+R5
+!s100 DB5KI2ZAkfh<YFYmK7US@0
+!s108 1636890011.272000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/utils/full_handshake_rx.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/utils/full_handshake_rx.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vfull_handshake_tx
+R8
+Ih]Y3kzaY8`394Qg2f]nFh1
+R2
+R3
+w1636775156
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/utils/full_handshake_tx.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/utils/full_handshake_tx.v
+L0 23
+R4
+r1
+31
+R5
+!s100 BRL]VmSRO]4]5]6Aabn;42
+!s108 1636890011.534000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/utils/full_handshake_tx.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/utils/full_handshake_tx.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vgen_en_dff
+R8
+IPdn>N>FlS20kPoz;8:Ib?2
+R2
+R3
+Z11 w1633522950
+Z12 8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/utils/gen_dff.v
+Z13 FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/utils/gen_dff.v
+L0 125
+R4
+r1
+31
+Z14 !s108 1636890011.223000
+Z15 !s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/utils/gen_dff.v|
+Z16 !s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/utils/gen_dff.v|-work|work|
+R5
+!s100 hb^U>RZW_5VYFFZ1_kAGz3
+!i10b 1
+!s85 0
+!i111 0
+vgen_pipe_dff
+R8
+I]F0M6OG=[>I6`<;VzSeHQ0
+R2
+R3
+R11
+R12
+R13
+L0 18
+R4
+r1
+31
+R14
+R15
+R16
+R5
+!s100 PU@ZP_hoXUcj9FV8>[mi<1
+!i10b 1
+!s85 0
+!i111 0
+vgen_rst_0_dff
+R8
+I6O@iNcL:5W2jM<`oJ^z<d2
+R2
+R3
+R11
+R12
+R13
+L0 46
+R4
+r1
+31
+R14
+R15
+R16
+R5
+!s100 >YAMVFKO=E66oX6<MZ6a@1
+!i10b 1
+!s85 0
+!i111 0
+vgen_rst_1_dff
+R8
+IZ4h30;GXl8J=<nPYBJlk51
+R2
+R3
+R11
+R12
+R13
+L0 72
+R4
+r1
+31
+R14
+R15
+R16
+R5
+!s100 0:9l02l=fY>O3@0:>b3072
+!i10b 1
+!s85 0
+!i111 0
+vgen_rst_def_dff
+R8
+Ig8^c[bzQoGn0[Oh?_Y6l00
+R2
+R3
+R11
+R12
+R13
+L0 98
+R4
+r1
+31
+R14
+R15
+R16
+R5
+!s100 D]BN7N?_Q?4?Sa]jQ]ch>0
+!i10b 1
+!s85 0
+!i111 0
+vgen_ticks_sync
+R6
+I97]GzNY2c^RFP3W?E4Tlh2
+R2
+R3
+R11
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/utils/gen_buf.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/utils/gen_buf.v
+L0 18
+R4
+r1
+31
+R5
+!s100 KP89n_4a[Z>3SQhBnogR42
+!s108 1636890010.746000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/utils/gen_buf.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/utils/gen_buf.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vgpio
+R8
+If<K<h;T[Rg0mmcSWFed?J0
+R2
+R3
+w1634214024
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/gpio.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/gpio.v
+L0 7
+R4
+r1
+31
+R5
+!s100 RHjDlQjg:caI:6A>PDH>[3
+!s108 1636890011.578000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/gpio.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/gpio.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vhc05_top
+R1
+I4HjYBH<YkgFJXJKIEf4V?3
+R2
+R3
+w1635508312
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/uart/hc05_top.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/uart/hc05_top.v
+L0 1
+R4
+r1
+31
+R5
+!s100 __f5XmbHO4F=FSULP3don0
+!s108 1636890012.782000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/uart/hc05_top.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/uart/hc05_top.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vHEX8
+R1
+I:0HddKG0MIR491^ihQV`82
+R2
+R3
+w1634903304
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/HEX8.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/HEX8.v
+L0 23
+R4
+r1
+31
+R5
+n@h@e@x8
+!s100 [ma[I2>>em=K:UnDfL1OA3
+!s108 1636890012.598000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/HEX8.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/HEX8.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vid
+R6
+I3b<IPkSZOP=eP9DOVHGk52
+R2
+R3
+w1636773563
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/id.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/id.v
+R10
+R4
+r1
+31
+R5
+!s100 j58ezQ0cjF`?]zlnGnYZY0
+!s108 1636890010.922000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/id.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/id.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vid_ex
+R6
+IEF?N?iAnH4RlKXGNfeVc`1
+R2
+R3
+w1636773602
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/id_ex.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/id_ex.v
+R9
+R4
+r1
+31
+R5
+!s100 kW`e;TEj`c`UJ@<G;Xd]X0
+!s108 1636890010.970000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/id_ex.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/id_ex.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vif_id
+R8
+Im18@24aWN5BAY^=YSC@go2
+R2
+R3
+w1636773559
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/if_id.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/if_id.v
+R9
+R4
+r1
+31
+R5
+!s100 XcmD`]_o16VUdE]T0I>j^3
+!s108 1636890011.095000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/if_id.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/if_id.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vjtag_dm
+I@;3L9C4dWHL64==GL`>VJ1
+R2
+R3
+R11
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/debug/jtag_dm.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/debug/jtag_dm.v
+L0 27
+R4
+r1
+31
+R5
+R6
+!s100 ]efQCLUWLgHR7CDk4L7Z>2
+!s108 1636890010.595000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/debug/jtag_dm.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/debug/jtag_dm.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vjtag_driver
+R8
+I^2o[d8Y4^5A0RO[Ko>9JT2
+R2
+R3
+R11
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/debug/jtag_driver.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/debug/jtag_driver.v
+L0 23
+R4
+r1
+31
+R5
+!s100 A4KIP:A8GR@E3nYPAUQMY1
+!s108 1636890011.399000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/debug/jtag_driver.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/debug/jtag_driver.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vjtag_top
+R8
+IZ;WZGOz>am1[L22MLd3Pn3
+R2
+R3
+w1636774057
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/debug/jtag_top.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/debug/jtag_top.v
+Z17 L0 167
+R4
+r1
+31
+R5
+!s100 kT_V7V0KMclgOT5aceNTF3
+!s108 1636890011.717000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/debug/jtag_top.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/debug/jtag_top.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vkey_filter
+IHQU]RRG>g48gSf04SgOe_0
+R2
+R3
+w1634996480
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/Desktop/key_filter.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/Desktop/key_filter.v
+L0 2
+R4
+r1
+31
+R5
+R1
+!s100 >VZfkQDVNoMl1ldJ7FhTH3
+!s108 1636890012.416000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/Desktop/key_filter.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/Desktop/key_filter.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vOLED_drive
+R1
+I6MZl6ZhfQLNiYllz6iLQB0
+R2
+R3
+w1635475634
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/OLED_drive.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/OLED_drive.v
+L0 2
+R4
+r1
+31
+R5
+n@o@l@e@d_drive
+!s100 S7mG_OJ]31[74FWk4AQno0
+!s108 1636890012.647000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/OLED_drive.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/OLED_drive.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vpc_reg
+R8
+I0a2SgR_HoLb:N71VdfegV1
+R2
+R3
+w1636773531
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/pc_reg.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/pc_reg.v
+R9
+R4
+r1
+31
+R5
+!s100 >>fGNl`K[=C_WdDUGaLhP1
+!s108 1636890011.359000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/pc_reg.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/pc_reg.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vpwm
+R8
+IABNDjlI0LL[=oZkOTjzj60
+R2
+R3
+w1636797950
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/pwm.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/pwm.v
+Z18 L0 154
+R4
+r1
+31
+R5
+!s100 0;ce2>3Y9?0?@fjdA>Q6W1
+!s108 1636890011.819000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/pwm.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/pwm.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vram
+R8
+I5jYc8ZOKlgS>hNBmd?SnO1
+R2
+R3
+w1636774027
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/ram.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/ram.v
+R17
+R4
+r1
+31
+R5
+!s100 [k6FDa6ImI4mNeO]K;GmA1
+!s108 1636890011.179000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/ram.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/ram.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vregs
+R8
+I;VU8:`8V[PAoS]beCH>PV2
+R2
+R3
+w1636773545
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/regs.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/regs.v
+R18
+R4
+r1
+31
+R5
+!s100 <Nd2MFfQVPdYZfAEz`lz;2
+!s108 1636890011.444000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/regs.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/regs.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vrib
+R8
+IXnUfV4bfYT88]Y`?SaFXh3
+R2
+R3
+w1636774053
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/rib.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/rib.v
+Z19 L0 156
+R4
+r1
+31
+R5
+!s100 B]8W3lT>0je>PS<R_o=FE2
+!s108 1636890011.483000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/rib.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/rib.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vrom
+R6
+ICfTz_2kdj37kO^j?DLj>H3
+R2
+R3
+w1636785538
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/rom.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/rom.v
+L0 46
+R4
+r1
+31
+R5
+!s100 U?6[`Y1eCJfSN<VIXR_zl2
+!s108 1636890010.697000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/rom.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/rom.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vsoc_tb
+R1
+I`[ZR=FWX>AWmT<m@kT]<o1
+R2
+R3
+w1636798504
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v
+L0 2
+R4
+r1
+31
+R5
+!i10b 1
+!s100 hKB]]fR5bj[@8UgPk5ETm1
+!s85 0
+!s108 1636890012.922000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc_tb.v|-work|work|
+!i111 0
+vspi
+R8
+I^CaNn6Lk2[CDnLCQjEeL:3
+R2
+R3
+R11
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/spi.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/spi.v
+L0 19
+R4
+r1
+31
+R5
+!s100 DZT^EE:O<c9lC??N>mmbg1
+!s108 1636890011.058000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/spi.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/spi.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vtimer
+R8
+Iz]oogoCVcVXoX9fS5Fan=1
+R2
+R3
+w1636774036
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/timer.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/timer.v
+R19
+R4
+r1
+31
+R5
+!s100 b]6DHbNn7PN9Um=S:0IW<3
+!s108 1636890011.626000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/timer.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/timer.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vtinyriscv
+R6
+IY[g7ciBjjQK^MVC0OXf[P1
+R2
+R3
+w1636774000
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/tinyriscv.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/tinyriscv.v
+L0 153
+R4
+r1
+31
+R5
+!s100 D>cXceoaT1cM[MUUIgf;f3
+!s108 1636890010.789000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/tinyriscv.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/core/tinyriscv.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vtinyriscv_soc_top
+R6
+IzeZ;l_b[T12okTGPz;W3k1
+R2
+R3
+w1636782645
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc/tinyriscv_soc_top.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc/tinyriscv_soc_top.v
+R7
+R4
+r1
+31
+R5
+!s100 I9>i=V]Yz_cLoRUVOhShF1
+!s108 1636890010.879000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc/tinyriscv_soc_top.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/soc/tinyriscv_soc_top.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vtop_dht22
+R1
+I=E>N3dPQ<OJ7gkdW[1AJK2
+R2
+R3
+w1636776787
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/top_module.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/top_module.v
+L0 1
+R4
+r1
+31
+R5
+!s100 UXd7AI>UT]7WG@K:ZFY190
+!s108 1636890012.690000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/top_module.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/rtl/top_module.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vuart
+R8
+Igi=mk39W@jc@ANXceXCke0
+R2
+R3
+R11
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/uart.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/uart.v
+L0 19
+R4
+r1
+31
+R5
+!s100 c@AdQ[KG<OPNa`<K=C^181
+!s108 1636890011.669000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/uart.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/perips/uart.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vuart_debug
+R8
+Ig]WWFXNF<iMQ4edWP?n0Q1
+R2
+R3
+w1633610104
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/debug/uart_debug.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/debug/uart_debug.v
+L0 44
+R4
+r1
+31
+R5
+!s100 gE<YknEV:bneE>9Q4aV:j0
+!s108 1636890011.761000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/debug/uart_debug.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/debug/uart_debug.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vuart_rx
+R1
+IS>Bafh9Bf6I@^;BgI<kYI3
+R2
+R3
+w1635508286
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/uart/uart_rx.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/uart/uart_rx.v
+L0 20
+R4
+r1
+31
+R5
+!s100 >0lnjeK9G9CBc39H`Q=361
+!s108 1636890012.826000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/uart/uart_rx.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/uart/uart_rx.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0
+vuart_tx
+R1
+!s100 7^fn@8iz2hS7f8h6QA;C_3
+I:@Yj`5^S2a@ibSaEHaQgO0
+R2
+R3
+w1635414188
+8C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/uart/uart_tx.v
+FC:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/uart/uart_tx.v
+L0 2
+R4
+r1
+31
+R5
+!s108 1636890012.867000
+!s107 C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/uart/uart_tx.v|
+!s90 -reportprogress|300|C:/Users/Misaka/Desktop/my_riscv_soc_sim_11.11/source/uart/uart_tx.v|-work|work|
+!i10b 1
+!s85 0
+!i111 0

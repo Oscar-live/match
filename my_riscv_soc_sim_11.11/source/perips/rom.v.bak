@@ -1,0 +1,446 @@
+
+
+// `include "../core/defines.v"
+
+
+// module rom(
+
+    // input wire clk,
+    // input wire rst,
+
+    // input wire we_i,                   // write enable
+    // input wire[`MemAddrBus] addr_i,    // addr 32bit
+    // input wire[`MemBus] data_i,        // 32bit
+
+    // output reg[`MemBus] data_o         // read data
+
+    // );
+
+
+
+
+
+
+    // reg[`MemBus] rom1[0:511]; //32*4096
+    
+    // always @ (posedge clk) begin
+        // if (we_i == `WriteEnable) begin       
+            // rom1[addr_i[31:2]] <= data_i;
+        // end
+    // end
+    
+    // always @ (*) begin
+        // if (rst == `RstEnable) begin
+            // data_o = `ZeroWord;
+        // end else begin
+            // data_o = rom1[addr_i[31:2]];
+        // end
+    // end
+
+// endmodule
+
+            
+        `define CpuResetAddr 32'h0
+
+`define RstEnable 1'b0
+`define RstDisable 1'b1
+`define ZeroWord 32'h0
+`define ZeroReg 5'h0
+`define WriteEnable 1'b1
+`define WriteDisable 1'b0
+`define ReadEnable 1'b1
+`define ReadDisable 1'b0
+`define True 1'b1
+`define False 1'b0
+`define ChipEnable 1'b1
+`define ChipDisable 1'b0
+`define JumpEnable 1'b1
+`define JumpDisable 1'b0
+`define DivResultNotReady 1'b0
+`define DivResultReady 1'b1
+`define DivStart 1'b1
+`define DivStop 1'b0
+`define HoldEnable 1'b1
+`define HoldDisable 1'b0
+`define Stop 1'b1
+`define NoStop 1'b0
+`define RIB_ACK 1'b1
+`define RIB_NACK 1'b0
+`define RIB_REQ 1'b1
+`define RIB_NREQ 1'b0
+`define INT_ASSERT 1'b1
+`define INT_DEASSERT 1'b0
+
+`define INT_BUS 7:0
+`define INT_NONE 8'h0
+`define INT_RET 8'hff
+`define INT_TIMER0 8'b00000001
+`define INT_TIMER0_ENTRY_ADDR 32'h4
+
+`define Hold_Flag_Bus   2:0
+`define Hold_None 3'b000
+`define Hold_Pc   3'b001
+`define Hold_If   3'b010
+`define Hold_Id   3'b011
+
+// I type inst
+`define INST_TYPE_I 7'b0010011
+`define INST_ADDI   3'b000
+`define INST_SLTI   3'b010
+`define INST_SLTIU  3'b011
+`define INST_XORI   3'b100
+`define INST_ORI    3'b110
+`define INST_ANDI   3'b111
+`define INST_SLLI   3'b001
+`define INST_SRI    3'b101
+
+// L type inst
+`define INST_TYPE_L 7'b0000011
+`define INST_LB     3'b000
+`define INST_LH     3'b001
+`define INST_LW     3'b010
+`define INST_LBU    3'b100
+`define INST_LHU    3'b101
+
+// S type inst
+`define INST_TYPE_S 7'b0100011
+`define INST_SB     3'b000
+`define INST_SH     3'b001
+`define INST_SW     3'b010
+
+// R and M type inst
+`define INST_TYPE_R_M 7'b0110011
+// R type inst
+`define INST_ADD_SUB 3'b000
+`define INST_SLL    3'b001
+`define INST_SLT    3'b010
+`define INST_SLTU   3'b011
+`define INST_XOR    3'b100
+`define INST_SR     3'b101
+`define INST_OR     3'b110
+`define INST_AND    3'b111
+// M type inst
+`define INST_MUL    3'b000
+`define INST_MULH   3'b001
+`define INST_MULHSU 3'b010
+`define INST_MULHU  3'b011
+`define INST_DIV    3'b100
+`define INST_DIVU   3'b101
+`define INST_REM    3'b110
+`define INST_REMU   3'b111
+
+// J type inst
+`define INST_JAL    7'b1101111
+`define INST_JALR   7'b1100111
+
+`define INST_LUI    7'b0110111
+`define INST_AUIPC  7'b0010111
+`define INST_NOP    32'h00000001
+`define INST_NOP_OP 7'b0000001
+`define INST_MRET   32'h30200073
+`define INST_RET    32'h00008067
+
+`define INST_FENCE  7'b0001111
+`define INST_ECALL  32'h73
+`define INST_EBREAK 32'h00100073
+
+// J type inst
+`define INST_TYPE_B 7'b1100011
+`define INST_BEQ    3'b000
+`define INST_BNE    3'b001
+`define INST_BLT    3'b100
+`define INST_BGE    3'b101
+`define INST_BLTU   3'b110
+`define INST_BGEU   3'b111
+
+// CSR inst
+`define INST_CSR    7'b1110011
+`define INST_CSRRW  3'b001
+`define INST_CSRRS  3'b010
+`define INST_CSRRC  3'b011
+`define INST_CSRRWI 3'b101
+`define INST_CSRRSI 3'b110
+`define INST_CSRRCI 3'b111
+
+// CSR reg addr
+`define CSR_CYCLE   12'hc00
+`define CSR_CYCLEH  12'hc80
+`define CSR_MTVEC   12'h305
+`define CSR_MCAUSE  12'h342
+`define CSR_MEPC    12'h341
+`define CSR_MIE     12'h304
+`define CSR_MSTATUS 12'h300
+`define CSR_MSCRATCH 12'h340
+
+`define RomNum 4096  // rom depth(how many words)
+
+`define MemNum 4096  // memory depth(how many words)
+`define MemBus 31:0
+`define MemAddrBus 31:0
+
+`define InstBus 31:0
+`define InstAddrBus 31:0
+
+// common regs
+`define RegAddrBus 4:0
+`define RegBus 31:0
+`define DoubleRegBus 63:0
+`define RegWidth 32
+`define RegNum 32        // reg num
+`define RegNumLog2 5
+    
+
+
+//`include "../core/defines.v"
+
+
+module rom(
+
+   input wire clk,
+   input wire rst,
+
+   input wire en,                     // enable
+
+   input wire we_i,                   // write enable
+   input wire[`MemAddrBus] addr_i,    // addr
+   input wire[`MemBus] data_i,
+
+   output wire[`MemBus] data_o         // read data
+
+   );
+
+   reg[31:0] ROM[511];
+
+	reg  [31:0]  read_addr;
+	
+	
+	always@(*)
+		if(rst == 1'b0)
+		begin
+			ROM[0 ]   =32'h10001197;
+			ROM[1 ]   =32'h80018193;
+			ROM[2 ]   =32'h10004117;
+			ROM[3 ]   =32'hff810113;
+			ROM[4 ]   =32'h33c00513;
+			ROM[5 ]   =32'h10000597;
+			ROM[6 ]   =32'hfec58593;
+			ROM[7 ]   =32'h10000617;
+			ROM[8 ]   =32'hfe460613;
+			ROM[9 ]   =32'h00c5fc63;
+			ROM[10]   =32'h00052283;
+			ROM[11]   =32'h0055a023;
+			ROM[12]   =32'h00450513;
+			ROM[13]   =32'h00458593;
+			ROM[14]   =32'hfec5e8e3;
+			ROM[15]   =32'h10000517;
+			ROM[16]   =32'hfc450513;
+			ROM[17]   =32'h80818593;
+			ROM[18]   =32'h00b57863;
+			ROM[19]   =32'h00052023;
+			ROM[20]   =32'h00450513;
+			ROM[21]   =32'hfeb56ce3;
+			ROM[22]   =32'h280000ef;
+			ROM[23]   =32'h1b0000ef;
+			ROM[24]   =32'h0000006f;
+			ROM[25]   =32'hf8010113;
+			ROM[26]   =32'h00112223;
+			ROM[27]   =32'h00212423;
+			ROM[28]   =32'h00312623;
+			ROM[29]   =32'h00412823;
+			ROM[30]   =32'h00512a23;
+			ROM[31]   =32'h00612c23;
+			ROM[32]   =32'h00712e23;
+			ROM[33]   =32'h02812023;
+			ROM[34]   =32'h02912223;
+			ROM[35]   =32'h02a12423;
+			ROM[36]   =32'h02b12623;
+			ROM[37]   =32'h02c12823;
+			ROM[38]   =32'h02d12a23;
+			ROM[39]   =32'h02e12c23;
+			ROM[40]   =32'h02f12e23;
+			ROM[41]   =32'h05012023;
+			ROM[42]   =32'h05112223;
+			ROM[43]   =32'h05212423;
+			ROM[44]   =32'h05312623;
+			ROM[45]   =32'h05412823;
+			ROM[46]   =32'h05512a23;
+			ROM[47]   =32'h05612c23;
+			ROM[48]   =32'h05712e23;
+			ROM[49]   =32'h07812023;
+			ROM[50]   =32'h07912223;
+			ROM[51]   =32'h07a12423;
+			ROM[52]   =32'h07b12623;
+			ROM[53]   =32'h07c12823;
+			ROM[54]   =32'h07d12a23;
+			ROM[55]   =32'h07e12c23;
+			ROM[56]   =32'h07f12e23;
+			ROM[57]   =32'h34202573;
+			ROM[58]   =32'h341025f3;
+			ROM[59]   =32'h01f55613;
+			ROM[60]   =32'h00060663;
+			ROM[61]   =32'h218000ef;
+			ROM[62]   =32'h00c0006f;
+			ROM[63]   =32'h00458593;
+			ROM[64]   =32'h34159073;
+			ROM[65]   =32'h00412083;
+			ROM[66]   =32'h00812103;
+			ROM[67]   =32'h00c12183;
+			ROM[68]   =32'h01012203;
+			ROM[69]   =32'h01412283;
+			ROM[70]   =32'h01812303;
+			ROM[71]   =32'h01c12383;
+			ROM[72]   =32'h02012403;
+			ROM[73]   =32'h02412483;
+			ROM[74]   =32'h02812503;
+			ROM[75]   =32'h02c12583;
+			ROM[76]   =32'h03012603;
+			ROM[77]   =32'h03412683;
+			ROM[78]   =32'h03812703;
+			ROM[79]   =32'h03c12783;
+			ROM[80]   =32'h04012803;
+			ROM[81]   =32'h04412883;
+			ROM[82]   =32'h04812903;
+			ROM[83]   =32'h04c12983;
+			ROM[84]   =32'h05012a03;
+			ROM[85]   =32'h05412a83;
+			ROM[86]   =32'h05812b03;
+			ROM[87]   =32'h05c12b83;
+			ROM[88]   =32'h06012c03;
+			ROM[89]   =32'h06412c83;
+			ROM[90]   =32'h06812d03;
+			ROM[91]   =32'h06c12d83;
+			ROM[92]   =32'h07012e03;
+			ROM[93]   =32'h07412e83;
+			ROM[94]   =32'h07812f03;
+			ROM[95]   =32'h07c12f83;
+			ROM[96]   =32'h08010113;
+			ROM[97]   =32'h30200073;
+			ROM[98]   =32'h0000006f;
+			ROM[99]   =32'hff010113;
+			ROM[100]  =32'h00812623;
+			ROM[101]  =32'h01010413;
+			ROM[102]  =32'h400007b7;
+			ROM[103]  =32'h0007a783;
+			ROM[104]  =32'h400007b7;
+			ROM[105]  =32'h0007a023;
+			ROM[106]  =32'h400007b7;
+			ROM[107]  =32'h00478793;
+			ROM[108]  =32'h0007a783;
+			ROM[109]  =32'h400007b7;
+			ROM[110]  =32'h00478793;
+			ROM[111]  =32'h0007a023;
+			ROM[112]  =32'h00000013;
+			ROM[113]  =32'h00c12403;
+			ROM[114]  =32'h01010113;
+			ROM[115]  =32'h00008067;
+			ROM[116]  =32'hfe010113;
+			ROM[117]  =32'h00812e23;
+			ROM[118]  =32'h02010413;
+			ROM[119]  =32'hfea42623;
+			ROM[120]  =32'h200007b7;
+			ROM[121]  =32'h00878793;
+			ROM[122]  =32'hfec42703;
+			ROM[123]  =32'h00e7a023;
+			ROM[124]  =32'h200007b7;
+			ROM[125]  =32'h00700713;
+			ROM[126]  =32'h00e7a023;
+			ROM[127]  =32'h00000013;
+			ROM[128]  =32'h01c12403;
+			ROM[129]  =32'h02010113;
+			ROM[130]  =32'h00008067;
+			ROM[131]  =32'hff010113;
+			ROM[132]  =32'h00112623;
+			ROM[133]  =32'h00812423;
+			ROM[134]  =32'h01010413;
+			ROM[135]  =32'hf71ff0ef;
+			ROM[136]  =32'h0007a7b7;
+			ROM[137]  =32'h12078513;
+			ROM[138]  =32'hfa9ff0ef;
+			ROM[139]  =32'h100007b7;
+			ROM[140]  =32'h0007a023;
+			ROM[141]  =32'h400007b7;
+			ROM[142]  =32'h0007a703;
+			ROM[143]  =32'h400007b7;
+			ROM[144]  =32'h00176713;
+			ROM[145]  =32'h00e7a023;
+			ROM[146]  =32'h400007b7;
+			ROM[147]  =32'h0007a703;
+			ROM[148]  =32'h400007b7;
+			ROM[149]  =32'h00476713;
+			ROM[150]  =32'h00e7a023;
+			ROM[151]  =32'h100007b7;
+			ROM[152]  =32'h0007a703;
+			ROM[153]  =32'h03200793;
+			ROM[154]  =32'hfef71ae3;
+			ROM[155]  =32'h100007b7;
+			ROM[156]  =32'h0007a023;
+			ROM[157]  =32'h400007b7;
+			ROM[158]  =32'h00478793;
+			ROM[159]  =32'h0007a703;
+			ROM[160]  =32'h400007b7;
+			ROM[161]  =32'h00478793;
+			ROM[162]  =32'h00174713;
+			ROM[163]  =32'h00e7a023;
+			ROM[164]  =32'hfcdff06f;
+			ROM[165]  =32'hff010113;
+			ROM[166]  =32'h00812623;
+			ROM[167]  =32'h01010413;
+			ROM[168]  =32'h200007b7;
+			ROM[169]  =32'h0007a703;
+			ROM[170]  =32'h200007b7;
+			ROM[171]  =32'h00576713;
+			ROM[172]  =32'h00e7a023;
+			ROM[173]  =32'h100007b7;
+			ROM[174]  =32'h0007a783;
+			ROM[175]  =32'h00178713;
+			ROM[176]  =32'h100007b7;
+			ROM[177]  =32'h00e7a023;
+			ROM[178]  =32'h00000013;
+			ROM[179]  =32'h00c12403;
+			ROM[180]  =32'h01010113;
+			ROM[181]  =32'h00008067;
+			ROM[182]  =32'hff010113;
+			ROM[183]  =32'h00812623;
+			ROM[184]  =32'h01010413;
+			ROM[185]  =32'h000007b7;
+			ROM[186]  =32'h06478793;
+			ROM[187]  =32'h30579073;
+			ROM[188]  =32'h000027b7;
+			ROM[189]  =32'h88878793;
+			ROM[190]  =32'h30079073;
+			ROM[191]  =32'h00000013;
+			ROM[192]  =32'h00c12403;
+			ROM[193]  =32'h01010113;
+			ROM[194]  =32'h00008067;
+			ROM[195]  =32'hfe010113;
+			ROM[196]  =32'h00112e23;
+			ROM[197]  =32'h00812c23;
+			ROM[198]  =32'h02010413;
+			ROM[199]  =32'hfea42623;
+			ROM[200]  =32'hfeb42423;
+			ROM[201]  =32'hf71ff0ef;
+			ROM[202]  =32'h00000013;
+			ROM[203]  =32'h01c12083;
+			ROM[204]  =32'h01812403;
+			ROM[205]  =32'h02010113;
+			ROM[206]  =32'h00008067;
+	end
+	
+	assign data_o = ROM[addr_i[31:2]];
+           
+endmodule   
+           
+
+
+          
+            
+
+
+
+
+
+
+
+
+
+
